@@ -1,2 +1,3 @@
--e git://github.com/django/django.git#egg=Django
+Django
+-e git+https://github.com/trilan/lemon#egg=Lemon
 -e .
