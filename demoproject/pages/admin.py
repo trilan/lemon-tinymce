@@ -1,13 +1,5 @@
-from django.db import models
-from django.contrib import admin
-
+from lemon import extradmin
 from pages.models import Page
-from tinymce.widgets import TinyMCE
 
 
-class TinyMCEPageAdmin(admin.ModelAdmin):
-    
-    formfield_overrides = {models.TextField: {'widget': TinyMCE}}
-
-
-admin.site.register(Page, TinyMCEPageAdmin)
+extradmin.site.register(Page, markup_fields=['content'])

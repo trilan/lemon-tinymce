@@ -1,8 +1,9 @@
 # Copyright (c) 2008 Joost Cassee
 # Licensed under the terms of the MIT License (see LICENSE.txt)
 
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.template import RequestContext, loader
+from django.shortcuts import render
 from django.utils import simplejson
 from django.utils.translation import ugettext as _
 
@@ -43,3 +44,11 @@ def preview(request, name):
     template = loader.select_template(template_files)
     return HttpResponse(template.render(RequestContext(request)),
             content_type="text/html")
+
+
+def filebrowser_js(request):
+    url = request.GET.get('url')
+    if not url:
+        raise Http404
+    return render(request, 'tinymce/filebrowser.js', {'url': url},
+                  content_type='application/x-javascript')

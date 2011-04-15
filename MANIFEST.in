@@ -1,2 +1,3 @@
 include LICENSE.txt
 recursive-include tinymce/static *
+recursive-include tinymce/templates *
