@@ -8,7 +8,6 @@ http://code.djangoproject.com/wiki/CustomWidgetsTinyMCE
 
 from django import forms
 from django.conf import settings
-from django.contrib.admin import widgets as admin_widgets
 from django.core.urlresolvers import reverse
 from django.forms.widgets import flatatt
 from django.utils.encoding import smart_unicode
@@ -73,8 +72,25 @@ class TinyMCE(forms.Textarea):
     media = property(_media)
 
 
-class AdminTinyMCE(admin_widgets.AdminTextareaWidget, TinyMCE):
-    pass
+class AdminTinyMCE(TinyMCE):
+
+    def __init__(self, content_language=None, attrs=None, mce_attrs=None):
+        super(AdminTinyMCE, self).__init__(content_language, attrs, mce_attrs)
+        if 'lemon.filebrowser' in settings.INSTALLED_APPS:
+            self.mce_attrs['file_browser_callback'] = 'lemonFileBrowser'
+
+    @property
+    def filebrowser_url(self):
+        return reverse('admin:filebrowser:browse')
+
+    def _media(self):
+        media = super(AdminTinyMCE, self)._media()
+        media.add_js(['%s?url=%s' % (
+            reverse('tinymce_filebrowser_js'),
+            self.filebrowser_url,
+        )])
+        return media
+    media = property(_media)
 
 
 def get_language_config(content_language=None):

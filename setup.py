@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name = 'trilan-tinymce',
-    version = '2.0',
-    url = 'https://github.com/trilan/trilan-tinymce',
+    name = 'lemon-tinymce',
+    version = '2.0.0',
+    url = 'https://github.com/trilan/lemon-tinymce',
     author = 'Mike Yumatov',
     author_email = 'lemon@trilandev.com',
     description = 'A Django application that contains a widget to render a ' \
