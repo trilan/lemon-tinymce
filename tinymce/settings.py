@@ -23,5 +23,7 @@ DEFAULT_CONFIG = getattr(settings, 'TINYMCE_DEFAULT_CONFIG', {
     'theme_advanced_resizing': 'true',
 })
 
+DEFAULT_CONFIG.update(getattr(settings, 'TINYMCE_CONFIG', {}))
+
 JS_URL = getattr(settings, 'TINYMCE_JS_URL',
                  '%stinymce/js/tiny_mce.js' % settings.STATIC_URL)
