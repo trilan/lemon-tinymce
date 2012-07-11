@@ -1,7 +1,7 @@
 from django.conf import settings
 
 
-DEFAULT_CONFIG = {
+CONFIG = {
     'convert_urls': False,
     'height': '350',
     'theme': 'advanced',
@@ -23,7 +23,9 @@ DEFAULT_CONFIG = {
     'theme_advanced_resizing': 'true',
 }
 
-DEFAULT_CONFIG.update(getattr(settings, 'TINYMCE_CONFIG', {}))
+CONFIG.update(getattr(settings, 'TINYMCE_CONFIG', {}))
+
+DEFAULT_CONFIG = getattr(settings, 'TINYMCE_DEFAULT_CONFIG', CONFIG)
 
 JS_URL = getattr(settings, 'TINYMCE_JS_URL',
                  '%stinymce/js/tiny_mce.js' % settings.STATIC_URL)
