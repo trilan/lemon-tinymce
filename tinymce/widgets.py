@@ -76,7 +76,7 @@ class AdminTinyMCE(TinyMCE):
 
     def __init__(self, content_language=None, attrs=None, mce_attrs=None):
         super(AdminTinyMCE, self).__init__(content_language, attrs, mce_attrs)
-        if 'lemon.filebrowser' in settings.INSTALLED_APPS:
+        if 'filebrowser' in settings.INSTALLED_APPS:
             self.mce_attrs['file_browser_callback'] = 'lemonFileBrowser'
 
     @property

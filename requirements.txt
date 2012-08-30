@@ -1,3 +1,4 @@
 Django
--e git+https://github.com/trilan/lemon#egg=Lemon
+Lemon
+lemon-filebrowser
 -e .
