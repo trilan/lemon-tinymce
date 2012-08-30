@@ -108,7 +108,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'lemon.dashboard',
     'lemon.filebrowser',
     'intellipages',
     'tinymce',
