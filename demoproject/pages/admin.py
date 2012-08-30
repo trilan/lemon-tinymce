@@ -1,5 +1,5 @@
-from lemon import extradmin
+import lemon
 from pages.models import Page
 
 
-extradmin.site.register(Page, markup_fields=['content'])
+lemon.site.register(Page, markup_fields=['content'])

@@ -100,7 +100,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'lemon.extradmin',
+    'lemon',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -137,6 +137,6 @@ LOGGING = {
     }
 }
 
-EXTRADMIN_CONFIG = {
+LEMON_CONFIG = {
     'MARKUP_WIDGET': 'tinymce.widgets.AdminTinyMCE',
 }
