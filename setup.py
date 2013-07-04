@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'lemon-tinymce',
-    version = '2.1',
+    version = '2.1.1',
     url = 'https://github.com/trilan/lemon-tinymce',
     author = 'Trilan Team',
     author_email = 'dev@lemon.io',
